@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import NavBar from './components/NavBar';
 
 function App() {
+
+  const [category, setCategory] = useState('Hola Mundo');
+
+  const handleCategory = (item) => {
+    setCategory(item);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar handleCategory={handleCategory}/>
+      <h1 className="center">{category}</h1>
     </div>
   );
 }
