@@ -1,11 +1,9 @@
 import './NavBar.css';
+import '@fortawesome/fontawesome-free/js/all.js';
+import { CartWidget } from '../CartWidget/CartWidget';
+ 
+const NavBar = () => {
 
-function NavBar(props) {
-
-  const handleItem = (item) => {
-    const { handleCategory } = props;
-    handleCategory(item);
-  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
@@ -22,10 +20,10 @@ function NavBar(props) {
                 Categorias
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a className="dropdown-item" href="/#" onClick={() => handleItem('Vehiculos')}>Vehiculos</a></li>
-                <li><a className="dropdown-item" href="/#" onClick={() => handleItem('Inmuebles')}>Inmuebles</a></li>
-                <li><a className="dropdown-item" href="/#" onClick={() => handleItem('Tecnologia')}>Tecnologia</a></li>
-                <li><a className="dropdown-item" href="/#" onClick={() => handleItem('Hogar y Muebles')}>Hogar y Muebles</a></li>
+                <li><a className="dropdown-item" href="/#">Vehiculos</a></li>
+                <li><a className="dropdown-item" href="/#">Inmuebles</a></li>
+                <li><a className="dropdown-item" href="/#">Tecnologia</a></li>
+                <li><a className="dropdown-item" href="/#">Hogar y Muebles</a></li>
               </ul>
             </li>
           </ul>
@@ -36,6 +34,9 @@ function NavBar(props) {
             
             <li className="nav-item">
               <a className="nav-link" href="/">Registrarse</a>
+            </li>
+            <li className="nav-item">
+              <CartWidget />
             </li>
             
           </ul>

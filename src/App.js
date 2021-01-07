@@ -1,19 +1,15 @@
 import './App.css';
-import { useState } from 'react';
-import NavBar from './components/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from './components/NavBar/NavBar';
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 
 function App() {
 
-  const [category, setCategory] = useState('Hola Mundo');
-
-  const handleCategory = (item) => {
-    setCategory(item);
-  }
 
   return (
     <div className="App">
-      <NavBar handleCategory={handleCategory}/>
-      <h1 className="center">{category}</h1>
+      <NavBar />
+      <ItemListContainer text={"Saludos comprador"}/>
     </div>
   );
 }
