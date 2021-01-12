@@ -12,9 +12,8 @@ export const ItemCount = (props) => {
     counter > 0 && setCounter(counter - 1);
   };
   useEffect(() => {
-    props.stock > 0 ? setCounter(1) : setCounter(0);
-    
-  }, [props.stock]);
+    setCounter(props.initial);
+  }, [props.initial]);
 
   return (
     <div className="card">
