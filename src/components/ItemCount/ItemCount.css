@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.card {
+    height: 10rem;
+    width: 16rem;
+    background-color: ghostwhite;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 1rem 1rem 1rem;
+  }
+  
+  .card-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .card-title:first-child {
+    font-size: 103%;
+    font-style: italic;
+  }
+  
+  .input-container {
+    margin-bottom:0.5rem;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .item-counter {
+    width: 100%;
+    height: 2rem;
+    padding-left: 6.4rem;
+    border: 1px solid;
+    border-color: gray;
+    border-radius: 4px;
+    font-size: 110%;
+  }
+  
+  .button-minus {
+    position: absolute;
+    font-size: 150%;
+    top:-1px;  
+    left: 0;
+    background: none;
+    border: 0;
+    color: dodgerblue;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-plus {
+    position: absolute;
+    font-size: 150%;
+    top:-1px;  
+    right: 0;
+    background: none;
+    border: 0;
+    color: dodgerblue;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-plus,
+  .button-minus,
+  .button-cart:focus {
+    outline: none;
+    border: none;
+    border: 0px solid;
+  }
+  
+
+  .button-cart {
+    width: 100%;
+    height: 2rem;
+    color: dodgerblue;
+    background: none;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: dodgerblue;
+    transition: 200ms ease-in;
+  }
+  
+  .button-cart-no-stock{
+    width: 100%;
+    height: 2rem;
+    color: crimson;
+    background: none;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: crimson;
+    transition: 200ms ease-in;
+  }
+  
+  .button-cart-no-stock:focus {
+      outline: none;
+      border-color: crimson;
+  }
+  
+  .button-cart:hover {
+    background-color: dodgerblue;
+    color: ghostwhite;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
