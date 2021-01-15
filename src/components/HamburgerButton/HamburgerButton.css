@@ -1,0 +1,23 @@
+.hamburger-button {
+    display:none;
+    padding:0.1rem;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.hamburger-button div{
+    width: 1.8rem;
+    height: 0.15rem;
+    background-color: white;
+    margin: 0.4rem;
+}
+
+.hamburger-button:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+    .hamburger-button {
+        display:block;
+    }
+}

@@ -1,0 +1,19 @@
+.item-list {
+    min-height: 25rem;
+    max-width: 70%;
+    margin-top: 7rem;
+    background-color:rgba(240, 240, 240, 0.8);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+@media screen and (max-width:768px){
+    .item-list {
+        max-width: 90%;
+        margin-top: 10rem;
+        padding: 0;
+    }
+}

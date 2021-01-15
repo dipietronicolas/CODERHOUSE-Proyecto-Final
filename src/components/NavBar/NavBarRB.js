@@ -14,7 +14,8 @@ export const NavBarRB = () => {
       variant="dark"
       className="d-flex justify-content-around p-1">
       <Navbar.Brand
-        href="/">
+        href="/"
+        className="ml-3 mr-0">
         La Tienda Virtual
       </Navbar.Brand>
       {/*<Nav className="mr-auto">*/}

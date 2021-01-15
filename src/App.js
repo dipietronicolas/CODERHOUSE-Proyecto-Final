@@ -1,5 +1,5 @@
 import './App.css';
-import { NavBarRB } from './components/NavBar/NavBarRB';
+import { NavBar } from './components/NavBar/NavBar';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 
 
@@ -7,8 +7,8 @@ function App() {
 
   return (
     <div className="App">
-      <NavBarRB />
-      <div className='item-list-container'>
+      <NavBar />
+      <div className='home'>
         <ItemListContainer
           text={"Saludos comprador"} />
       </div>
