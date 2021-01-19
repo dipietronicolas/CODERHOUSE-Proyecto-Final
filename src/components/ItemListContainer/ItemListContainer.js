@@ -10,37 +10,42 @@ export const ItemListContainer = (props) => {
     {
       id: 'kjdnckcdnsk6594665',
       title: 'Item01',
-      description: 'Alguna descripcion aqui',
+      description: 'Espacio reservado para colocar alguna descripcion del producto',
       price: 5600,
-      pageURL: 'https://picsum.photos/150/150?random=1'
+      pageURL: 'https://picsum.photos/150/150?random=1',
+      pageURLBig: 'https://picsum.photos/300/300?random=1'
     },
     {
       id: 'jjccjdsjcd516846',
       title: 'Item02',
       description: 'Alguna descripcion aqui',
       price: 3450,
-      pageURL: 'https://picsum.photos/150/150?random=2'
+      pageURL: 'https://picsum.photos/150/150?random=2',
+      pageURLBig: 'https://picsum.photos/300/300?random=2'
     },
     {
       id: 'dcajdcsdcjn651656',
       title: 'Item03',
       description: 'Alguna descripcion aqui',
       price: 10500,
-      pageURL: 'https://picsum.photos/150/150?random=3'
+      pageURL: 'https://picsum.photos/150/150?random=3',
+      pageURLBig: 'https://picsum.photos/300/300?random=3'
     },
     {
       id: 'dskdjnskfjd65165',
       title: 'Item04',
       description: 'Alguna descripcion aqui',
       price: 2600,
-      pageURL: 'https://picsum.photos/150/150?random=4'
+      pageURL: 'https://picsum.photos/150/150?random=4',
+      pageURLBig: 'https://picsum.photos/300/300?random=4'
     },
     {
       id: 'mwdijfcaiw6516156151',
       title: 'Item05',
       description: 'Alguna descripcion aqui',
       price: 1060,
-      pageURL: 'https://picsum.photos/150/150?random=5'
+      pageURL: 'https://picsum.photos/150/150?random=5',
+      pageURLBig: 'https://picsum.photos/300/300?random=5'
     },
   ]
 

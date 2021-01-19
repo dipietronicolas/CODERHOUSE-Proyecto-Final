@@ -1,0 +1,42 @@
+.item-detail-container {
+    overflow-y: hidden;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items:flex-start
+}
+
+.close-button-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 2.5rem;
+    padding: 0rem 1rem 0rem 1rem;
+    margin-top: 1rem;
+    margin-right: 3rem;
+    color: goldenrod;
+}
+
+.close-button:focus {
+    border: none;
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    .close-button {
+        margin-right: 1rem;
+    }
+}

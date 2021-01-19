@@ -5,3 +5,9 @@
     border-color: gainsboro;
     border-radius: 5%;
 }
+
+@media screen and (max-width: 380px) {
+    .Card {
+        max-width: 9rem;
+    }
+}

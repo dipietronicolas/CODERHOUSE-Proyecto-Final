@@ -15,5 +15,15 @@
         max-width: 90%;
         margin-top: 10rem;
         padding: 0;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:576px){
+    .item-list {
+        max-width: 95%;
+        margin-top: 10rem;
+        padding: 0;
+        justify-content: center;
     }
 }
