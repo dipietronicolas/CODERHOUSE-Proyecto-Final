@@ -19,7 +19,7 @@ export const Item = (props) => {
   return (
     <div className="Card">
       <img className="card-img-top" src={props.item.pageURLBig} alt="Card cap"></img>
-      <div className='card-body'>
+      <div className='card-body px-2'>
         <h3 className="card-title">{props.item.title}</h3>
         <p>Precio: ${props.item.price}</p>
         <button 
