@@ -1,0 +1,13 @@
+.item-detail{
+    height: 100%;
+    width: 100%;
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.item-detail-box {
+    height: 40rem;
+    width: 20rem;
+    background-color: rgba(240, 240, 240, 0.95);
+}

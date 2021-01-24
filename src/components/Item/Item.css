@@ -2,8 +2,8 @@
     max-width: 10rem;
     margin: 0.75rem;
     border: 1px solid;
-    border-color: gainsboro;
-    border-radius: 5%;
+    border-color:gainsboro;
+    border-radius: 2%;
 }
 
 @media screen and (max-width: 380px) {

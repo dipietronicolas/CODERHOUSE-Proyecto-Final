@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ItemCount.css';
 
 export const ItemCount = (props) => {
+
   const [counter, setCounter] = useState(0);
   
   const handlePlusButton = () => {
@@ -11,9 +12,10 @@ export const ItemCount = (props) => {
   const handleMinusButton = () => {
     counter > 0 && setCounter(counter - 1);
   };
+
   useEffect(() => {
-    setCounter(props.initial);
-  }, [props.initial]);
+    props.stock > 0 ? setCounter(props.initial) : setCounter(0);
+  }, [props]);
 
   return (
     <div className="card">
