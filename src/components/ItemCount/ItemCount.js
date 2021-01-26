@@ -13,6 +13,10 @@ export const ItemCount = (props) => {
     counter > 0 && setCounter(counter - 1);
   };
 
+  const handleAdd = () => {
+    props.onAdd(counter);
+  }
+
   useEffect(() => {
     props.stock > 0 ? setCounter(props.initial) : setCounter(0);
   }, [props]);
@@ -46,9 +50,10 @@ export const ItemCount = (props) => {
       {
         props.stock > 0
           ? <button
-            className="button-cart">Agregar al carrito</button>
+              className="button-cart"
+              onClick={handleAdd}>Agregar al carrito</button>
           : <button
-            className="button-cart-no-stock">Sin stock!</button>
+              className="button-cart-no-stock">Sin stock!</button>
       }
     </div>
   );

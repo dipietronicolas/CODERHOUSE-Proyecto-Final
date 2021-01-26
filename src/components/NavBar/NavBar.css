@@ -86,7 +86,9 @@
     opacity: 0;
     z-index: -1;
     transform: translateY(-10px);
-    transition: all 0.3s ease;
+    
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
 }
 
 .Navbar-dropdown ul li {

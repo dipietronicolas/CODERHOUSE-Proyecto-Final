@@ -4,6 +4,7 @@ import { CartWidget } from '../CartWidget/CartWidget';
 import { HamburgerButton } from '../HamburgerButton/HamburgerButton';
 import { Link } from 'react-router-dom';
 
+
 export const NavBar = (props) => {
 
   const [categories, setCategories] = useState();
@@ -23,10 +24,10 @@ export const NavBar = (props) => {
     }
     filteredCategories = filteredCategories.map((item, index) => {
       return <li key={index}><Link to={`/category/${item}`} className="dropdown-link">{item}</Link></li>
+      
     })
     setCategories(filteredCategories);
   }, [props]);
-
 
   return (
     <nav className="Navbar">
