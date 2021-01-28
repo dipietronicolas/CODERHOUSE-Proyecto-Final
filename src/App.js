@@ -1,5 +1,5 @@
 import './App.css';
-//import { useEffect } from 'react';
+import { CartDataProvider } from './context/CartContext'
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
@@ -65,25 +65,27 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <NavBar items={items}/>
-        <div className='home'>
-          <Switch>
-            <Route exact path="/">
-              <ItemListContainer items={items} />
-            </Route>
-            <Route path="/category/:categoryId">
-              <ItemListContainer items={items} />
-            </Route>
-            <Route path="/item/:id">
-              <ItemDetailContainer items={items} />
-            </Route>
-            <Route path="/cart/">
-              <Cart />
-            </Route>
-          </Switch>
+      <CartDataProvider>
+        <div className="App">
+          <NavBar items={items} />
+          <div className='home'>
+            <Switch>
+              <Route exact path="/">
+                <ItemListContainer items={items} />
+              </Route>
+              <Route path="/category/:categoryId">
+                <ItemListContainer items={items} />
+              </Route>
+              <Route path="/item/:id">
+                <ItemDetailContainer items={items} />
+              </Route>
+              <Route path="/cart/">
+                <Cart />
+              </Route>
+            </Switch>
+          </div>
         </div>
-      </div>
+      </CartDataProvider>
     </BrowserRouter>
   );
 }

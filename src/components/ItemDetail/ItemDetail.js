@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './ItemDetail.css';
+import { CartContext } from '../../context/CartContext';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 export const ItemDetail = (props) => {
 
+  // Estado del componente
   const [stock, setStock] = useState();
   const [buyAmount, setBuyAmount] = useState();
   const [showBuyButton, setShowBuyButton] = useState(false);
 
   const onAdd = (counter) => {
-    console.log(`Productos ${counter}`);
     setBuyAmount(counter);
     setShowBuyButton(true);
   }
@@ -18,6 +19,14 @@ export const ItemDetail = (props) => {
   useEffect(() => {
     setStock(props.item.stock);
   }, [props]);
+
+  // Contexto de CartContext
+  const { addItem } = useContext(CartContext);
+  const handleContext = () => {
+    const { item } = props;
+    addItem(item, buyAmount);
+  }
+
 
   return (
     <div className="item-detail">
@@ -46,7 +55,8 @@ export const ItemDetail = (props) => {
                 </div>
                 <Link 
                   to="/cart/"
-                  className="buy-button">Comprar</Link>
+                  className="buy-button"
+                  onClick={() => handleContext()}>Comprar</Link>
                 <button
                   className="buy-button-cancel"
                   onClick={() => setShowBuyButton(false)}>Cancelar</button>
