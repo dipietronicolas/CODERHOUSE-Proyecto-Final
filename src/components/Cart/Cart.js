@@ -1,41 +1,52 @@
 import React, { useContext } from 'react';
 import './Cart.css';
 import { CartContext } from '../../context/CartContext';
+import { CartItem } from '../CartItem/CartItem';
+import { Link } from 'react-router-dom';
 
 export const Cart = () => {
 
-  const { data, removeItem, clear } = useContext(CartContext);
+  const { data, clear } = useContext(CartContext);
 
 
   return (
     <div className="Cart">
-
-      <h1>Esto es el componente Cart</h1>
-
-      {
-        data.map((data) => {
-          return (
-            <div className="cart-item-container" key={data.item.id}>
-              <p className="cart-item">
-                Comprar {data.amount} {data.item.title}
-                <button
-                  className="cart-remove-button"
-                  onClick={() => removeItem(data.item.id)}>
-                  <i className="far fa-trash-alt"></i>
-                </button>
-              </p>
-            </div>
-          )
-        })
-      }
-      <div className="cart-button-container">
-        <button 
-          className="cart-button btn-red" 
-          onClick={() => clear()}>Borrar Carrito</button>
-        <button 
-          className="cart-button btn-yellow" 
-          onClick={() => clear()}>Finalizar Compra</button>
+      <div className="return-button-container">
+        <Link
+          to={'/'}
+          className="return-button">
+          Volver al listado
+        </Link>
       </div>
+      <h3>Tus productos</h3>
+      <CartItem />
+      {
+        data.length > 0
+          ?
+          <div className="cart-checkout">
+            <div className="cart-total-price">
+              <h4>Total: $
+                {
+                  data.map((obj) => {
+                    return obj.item.price * obj.amount;
+                  }).reduce((x, y) => {
+
+                    return (x + y)
+                  })
+                }
+              </h4>
+            </div>
+            <div className="cart-button-container">
+              <button
+                className="cart-button btn-yellow">Finalizar Compra</button>
+              <button
+                className="cart-clear-button"
+                onClick={() => clear()}>Borrar Carrito</button>
+            </div>
+          </div>
+          : <h4>No tienes productos en tu carrito.</h4>
+      }
+
     </div>
   )
 }
