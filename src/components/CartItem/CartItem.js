@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import './CartItem.css';
 import { CartContext } from '../../context/CartContext';
 import { CartItemCounter } from '../CartItemCounter/CartItemCounter';
+import NumberFormat from 'react-number-format';
 
 export const CartItem = () => {
 
@@ -18,11 +19,11 @@ export const CartItem = () => {
               </div>
               <div className="cart-item-name">
                 <strong>{data.item.title}</strong>
-                <p>x ${data.item.price}</p>
+                <p>x <NumberFormat value={data.item.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'}/></p>
               </div>
               <CartItemCounter stock={data.item.stock} dataIndex={index}/>
               <div className="cart-item-price">
-                $ {data.item.price * data.amount}
+              <NumberFormat value={(data.item.price * data.amount).toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'}/>
               </div>
               <button
                 className="cart-remove-button"

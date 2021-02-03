@@ -3,6 +3,7 @@ import './ItemDetail.css';
 import { CartContext } from '../../context/CartContext';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import NumberFormat from 'react-number-format';
 
 export const ItemDetail = (props) => {
 
@@ -30,6 +31,10 @@ export const ItemDetail = (props) => {
 
   return (
     <div className="item-detail">
+      <div className='item-detail-header'>
+        <h3 className='item-detail-title'>Detalle de {props.item.title}</h3>
+        
+      </div>
       <div className="item-detail-box">
         <div className="return-button-container">
           <Link
@@ -37,14 +42,22 @@ export const ItemDetail = (props) => {
             className="return-button">
             Volver al listado
           </Link>
+          <Link
+            to={`/category/${props.item.category}`}
+            className="return-button">
+            {props.item.category}
+          </Link>
+          
         </div>
         <div className="img-container">
           <img className="" src={props.item.pageURLBig} alt="Card cap" />
         </div>
         <div className="item-description-container">
-          <h1>{props.item.title}</h1>
-          <p className=''>{props.item.description}</p>
-          <p>Precio: ${props.item.price}</p>
+          <h1 className="item-detail-description-title">{props.item.title}</h1>
+          <p className='item-detail-description'>{props.item.description}</p>
+          <p className='item-detail-description negrita'>Precio:
+            &nbsp;<NumberFormat value={props.item.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'}/>
+          </p>
           {
             showBuyButton
               ?

@@ -1,21 +1,67 @@
 .Card {
-    max-width: 10rem;
-    height: 20rem;
+    max-width: 15rem;
+    height: 25rem;
     margin: 0.75rem;
     border: 1px solid;
     border-color:gainsboro;
-    border-radius: 2%;
+    box-shadow: 5px 5px 5px 0px slategray;
     transition-duration: 100ms;
     transition-timing-function: ease-in;
+    
 }
 
 .Card:hover {
     box-shadow: 0px 0px 10px 10px rgba(112, 128, 144, 0.4);
+    height: 25.2rem;
     
+}
+
+.Card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.Card-header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+.Card-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 150%;
+}
+
+.Card-paragraph {
+    font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .Card {
+        max-width: 45%;
+        height: 28rem;
+    }
+    .Card:hover {
+        height: 28.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .Card {
+        max-width: 95%;
+        height: 28rem;
+    }
+    .Card:hover {
+        height: 28.5rem;
+    }
 }
 
 @media screen and (max-width: 380px) {
     .Card {
-        max-width: 9rem;
+        max-width: 80%;
+        height: 28rem;
+    }
+    .Card:hover {
+        height: 28.5rem;
     }
 }
