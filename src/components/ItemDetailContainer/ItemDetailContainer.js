@@ -2,22 +2,32 @@ import React, { useState, useEffect } from 'react';
 import './ItemDetailContainer.css';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
+import { getFirestore } from '../../firebase/firebase';
 
-export const ItemDetailContainer = (props) => {
+export const ItemDetailContainer = () => {
 
   const [itemDetail, setItemDetail] = useState();
   let { id } = useParams();
   
+  // Efecto que busca un item por ID.
   useEffect(() => {
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const item = props.items.filter((item) => {
-          return item.id === id;
-        })
-        resolve(setItemDetail(<ItemDetail item={item[0]} />));
-      }, 2000)
-    })
-  }, [props, id]);
+    const db = getFirestore();
+    const itemsCollection = db.collection("items");
+    const item = itemsCollection.doc(id);
+
+    item.get().then((doc) => {
+      if(!doc.exists){
+        console.log("Sin resultados");
+        return;
+      }
+      console.log("Item encontrado.");
+      setItemDetail(<ItemDetail item={{
+        id: doc.id,
+        ...doc.data()
+      }} />);
+    }).catch((error) => console.log("error"))
+
+  }, [id]);
 
   
 

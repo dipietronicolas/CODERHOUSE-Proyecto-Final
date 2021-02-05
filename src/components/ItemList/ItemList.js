@@ -9,14 +9,10 @@ export const ItemList = (props) => {
 
   useEffect(() => {
     let array = []
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        for (const it of props.items) {
-          array.push(<Item item={it} key={it.id} />)
-        }
-        resolve(setItemsArray(array));
-      }, 2000)
-    })
+    for (const it of props.items) {
+      array.push(<Item item={it} key={it.id} />)
+    }
+    setItemsArray(array);
   }, [props.items])
 
   return (

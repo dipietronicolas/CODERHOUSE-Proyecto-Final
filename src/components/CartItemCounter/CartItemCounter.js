@@ -39,7 +39,6 @@ export const CartItemCounter = ({ stock, dataIndex }) => {
         </button>
         <input
           value={counter}
-          onChange={() => null}
           type="number"
           className="cart-counter-item-counter"
         />

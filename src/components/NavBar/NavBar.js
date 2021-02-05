@@ -3,20 +3,40 @@ import './NavBar.css';
 import { CartWidget } from '../CartWidget/CartWidget';
 import { HamburgerButton } from '../HamburgerButton/HamburgerButton';
 import { Link } from 'react-router-dom';
+import { getFirestore } from '../../firebase/firebase'; 
 
 
-export const NavBar = (props) => {
+export const NavBar = () => {
 
   const [categories, setCategories] = useState();
+  const [items, setItems] = useState([]);
 
   const handleNavbar = () => {
     const navbar = document.querySelector('.Navbar-nav');
     console.log(navbar.classList.toggle('Navbar-active'));
   }
 
+  // Efecto que trae los items de firestore para settear las categorias
+  useEffect( () => {
+    const db = getFirestore();
+    const itemsCollection = db.collection("items");
+    itemsCollection.get().then((querySnapshot) => {
+      querySnapshot.size === 0 && console.log("Sin resultados!");
+      setItems(querySnapshot.docs.map((doc) =>{
+        return {
+          id: doc.id,
+          ...doc.data()
+        };
+      }))
+    }).catch((error) => console.log("error"));
+  }, [])
+
+  
+  // Efecto que settea las categorias
   useEffect(()=>{
     let filteredCategories = [];
-    for (const item of props.items) {
+
+    for (const item of items) {
       const itemCategory = item.category;
       if(filteredCategories.indexOf(itemCategory) === -1){
         filteredCategories.push(itemCategory);
@@ -27,7 +47,7 @@ export const NavBar = (props) => {
       
     })
     setCategories(filteredCategories);
-  }, [props]);
+  }, [items]);
 
   return (
     <nav className="Navbar">
