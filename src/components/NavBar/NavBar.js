@@ -43,8 +43,16 @@ export const NavBar = () => {
       }
     }
     filteredCategories = filteredCategories.map((item, index) => {
-      return <li key={index}><Link to={`/category/${item}`} className="dropdown-link">{item}</Link></li>
-      
+      return (
+        <li key={index}>
+          <Link 
+            to={`/category/${item}`} 
+            className="dropdown-link" 
+            style={{ textDecoration: 'none' }}>
+              {item}
+          </Link>
+        </li>
+      )
     })
     setCategories(filteredCategories);
   }, [items]);
@@ -60,7 +68,7 @@ export const NavBar = () => {
 
         <div className="Navbar-dropdown">
           <button className="dropdown-button">CATEGORIAS <i className="fas fa-caret-down"></i></button>
-          <ul>
+          <ul className="dropdown-list">
             {
               categories && categories
             }

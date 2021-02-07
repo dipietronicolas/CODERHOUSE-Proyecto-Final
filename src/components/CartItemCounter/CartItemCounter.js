@@ -41,6 +41,7 @@ export const CartItemCounter = ({ stock, dataIndex }) => {
           value={counter}
           type="number"
           className="cart-counter-item-counter"
+          
         />
         <button
           onClick={handlePlusB}
