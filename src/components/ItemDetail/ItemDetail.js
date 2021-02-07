@@ -33,7 +33,7 @@ export const ItemDetail = (props) => {
     <div className="item-detail">
       <div className='item-detail-header'>
         <h3 className='item-detail-title'>Detalle de {props.item.title}</h3>
-        
+
       </div>
       <div className="item-detail-box">
         <div className="return-button-container">
@@ -47,7 +47,7 @@ export const ItemDetail = (props) => {
             className="return-button">
             {props.item.category}
           </Link>
-          
+
         </div>
         <div className="img-container">
           <img className="" src={props.item.pageURLBig} alt="Card cap" />
@@ -56,7 +56,7 @@ export const ItemDetail = (props) => {
           <h1 className="item-detail-description-title">{props.item.title}</h1>
           <p className='item-detail-description'>{props.item.description}</p>
           <p className='item-detail-description negrita'>Precio:
-            &nbsp;<NumberFormat value={props.item.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'}/>
+            &nbsp;<NumberFormat value={props.item.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} />
           </p>
           {
             showBuyButton
@@ -66,7 +66,7 @@ export const ItemDetail = (props) => {
                   <p>{props.item.title}</p>
                   <p>Cantidad: {buyAmount}</p>
                 </div>
-                <Link 
+                <Link
                   to="/cart/"
                   className="buy-button"
                   onClick={() => handleContext()}>Comprar</Link>
@@ -75,11 +75,13 @@ export const ItemDetail = (props) => {
                   onClick={() => setShowBuyButton(false)}>Cancelar</button>
               </div>
               :
-              <ItemCount
-                product={props.item.title}
-                stock={stock}
-                initial={1}
-                onAdd={onAdd} />
+              <div className="item-detail-count-container">
+                <ItemCount
+                  product={props.item.title}
+                  stock={stock}
+                  initial={1}
+                  onAdd={onAdd} />
+              </div>
           }
         </div>
       </div>

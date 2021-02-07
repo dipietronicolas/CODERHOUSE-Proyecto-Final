@@ -1,61 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './NavBar.css';
 import { CartWidget } from '../CartWidget/CartWidget';
 import { HamburgerButton } from '../HamburgerButton/HamburgerButton';
+import { NavBarDropdown } from '../NavBarDropdown/NavBarDropdown';
 import { Link } from 'react-router-dom';
-import { getFirestore } from '../../firebase/firebase'; 
-
 
 export const NavBar = () => {
-
-  const [categories, setCategories] = useState();
-  const [items, setItems] = useState([]);
 
   const handleNavbar = () => {
     const navbar = document.querySelector('.Navbar-nav');
     console.log(navbar.classList.toggle('Navbar-active'));
   }
-
-  // Efecto que trae los items de firestore para settear las categorias
-  useEffect( () => {
-    const db = getFirestore();
-    const itemsCollection = db.collection("items");
-    itemsCollection.get().then((querySnapshot) => {
-      querySnapshot.size === 0 && console.log("Sin resultados!");
-      setItems(querySnapshot.docs.map((doc) =>{
-        return {
-          id: doc.id,
-          ...doc.data()
-        };
-      }))
-    }).catch((error) => console.log("error"));
-  }, [])
-
-  
-  // Efecto que settea las categorias
-  useEffect(()=>{
-    let filteredCategories = [];
-
-    for (const item of items) {
-      const itemCategory = item.category;
-      if(filteredCategories.indexOf(itemCategory) === -1){
-        filteredCategories.push(itemCategory);
-      }
-    }
-    filteredCategories = filteredCategories.map((item, index) => {
-      return (
-        <li key={index}>
-          <Link 
-            to={`/category/${item}`} 
-            className="dropdown-link" 
-            style={{ textDecoration: 'none' }}>
-              {item}
-          </Link>
-        </li>
-      )
-    })
-    setCategories(filteredCategories);
-  }, [items]);
 
   return (
     <nav className="Navbar">
@@ -65,15 +20,7 @@ export const NavBar = () => {
               TIENDA ONLINE
             </Link>
         </h3>
-
-        <div className="Navbar-dropdown">
-          <button className="dropdown-button">CATEGORIAS <i className="fas fa-caret-down"></i></button>
-          <ul className="dropdown-list">
-            {
-              categories && categories
-            }
-          </ul>
-        </div>
+        <NavBarDropdown />
       </div>
       <ul className="Navbar-nav">
         <li className="Navbar-item"><a href="/#">INGRESAR</a></li>

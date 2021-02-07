@@ -12,8 +12,6 @@
 
 .Card:hover {
     box-shadow: 0px 0px 10px 10px rgba(112, 128, 144, 0.4);
-    height: 25.2rem;
-    
 }
 
 .Card-body {

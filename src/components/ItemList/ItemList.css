@@ -19,8 +19,6 @@
     text-align: start;
     margin-left: 0.75rem;
     border-bottom: 1px solid slategray;
-    
-    
 }
 
 .item-list-title {
@@ -34,6 +32,17 @@
     flex-wrap: wrap;
     justify-content:flex-start;
     width: 100%;
+    min-height: 100vh;
+}
+
+@media screen and (min-width:1900px){
+    .item-list-container {
+        justify-content: center;
+        min-height: 100vh;
+    }
+    .item-list{
+        width: 60%;
+    }
 }
 
 @media screen and (max-width:768px){

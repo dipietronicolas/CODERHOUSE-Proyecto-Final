@@ -3,21 +3,29 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items:center;
-    margin:0;
+    align-items: center;
+    margin: 0;
     padding-bottom: 1rem;
     background-color: rgba(240, 240, 240, 0.95);
 }
 
-@media screen and (max-width:768px){
-    .item-detail-container  {
+@media screen and (min-width:1900px){
+    .item-detail-container {
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .item-detail-container {
         padding-top: 5rem;
-        
         min-height: fit-content;
     }
 }
-@media screen and (max-width:576px){
-.item-detail-container {
-    width: 100%;
-}
+
+@media screen and (max-width:576px) {
+    .item-detail-container {
+        width: 100%;
+    }
 }
