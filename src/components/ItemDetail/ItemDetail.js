@@ -65,7 +65,7 @@ export const ItemDetail = (props) => {
 
         </div>
         <div className="img-container">
-          <img className="item-detail-picture" src={picRef ? picRef : props.item.pageURLBig} alt="Card cap" />
+          <img className="item-detail-picture" src={picRef} alt="Card cap" />
         </div>
         <div className="item-description-container">
           <h1 className="item-detail-description-title">{props.item.title}</h1>

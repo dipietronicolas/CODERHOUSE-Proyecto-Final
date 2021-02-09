@@ -15,8 +15,7 @@ export const Item = (props) => {
       const storageRef = getStorageRef();
       const pic_name = props.item.picture;
       const final_ref = storageRef.child(pic_name);
-      console.log(final_ref);
-
+      
       // Get the download URL
       final_ref.getDownloadURL()
         .then((url) => {
@@ -25,15 +24,13 @@ export const Item = (props) => {
           console.log(error);
         });
     }
-
-
   }, [props])
 
   return (
     <div className="Card">
       {/*<img className="card-img-top" src={props.item.pageURLBig} alt="Card cap"></img>*/}
       <div className="Card-img-container">
-        <img className="Card-img-top" src={picRef ? picRef : props.item.pageURLBig} alt="Card cap"></img>
+        <img className="Card-img-top" src={picRef} alt="Card cap"></img>
       </div>
 
       <div className='Card-body px-2'>
