@@ -1,20 +1,41 @@
 .Card {
+    background-color: white;
     max-width: 15rem;
-    height: 25rem;
+    height: 27rem;
     margin: 0.75rem;
+    padding-bottom: 0.5rem;
     border: 1px solid;
     border-color:gainsboro;
     box-shadow: 5px 5px 5px 0px slategray;
     transition-duration: 100ms;
     transition-timing-function: ease-in;
     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .Card:hover {
     box-shadow: 0px 0px 10px 10px rgba(112, 128, 144, 0.4);
 }
 
+.Card-img-container {
+    height: 250px;
+    width: 60%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card-img-top {
+    height: auto;
+    width: 100%;
+}
+
 .Card-body {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -27,7 +48,7 @@
 }
 .Card-title{
     font-family: 'Montserrat', sans-serif;
-    font-size: 150%;
+    
 }
 
 .Card-paragraph {
@@ -63,3 +84,6 @@
         height: 28.5rem;
     }
 }
+
+
+

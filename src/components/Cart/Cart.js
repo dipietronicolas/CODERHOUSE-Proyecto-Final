@@ -5,10 +5,11 @@ import { CartItem } from '../CartItem/CartItem';
 import { Link } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 
+
 export const Cart = () => {
 
   const { data, clear } = useContext(CartContext);
-
+  
 
   return (
     <div className="Cart-container">

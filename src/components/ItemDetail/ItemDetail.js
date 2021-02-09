@@ -4,6 +4,7 @@ import { CartContext } from '../../context/CartContext';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
+import { getStorageRef } from '../../firebase/firebase';
 
 export const ItemDetail = (props) => {
 
@@ -11,6 +12,7 @@ export const ItemDetail = (props) => {
   const [stock, setStock] = useState();
   const [buyAmount, setBuyAmount] = useState();
   const [showBuyButton, setShowBuyButton] = useState(false);
+  const [picRef, setPicRef] = useState(null);
 
   const onAdd = (counter) => {
     setBuyAmount(counter);
@@ -19,6 +21,19 @@ export const ItemDetail = (props) => {
 
   useEffect(() => {
     setStock(props.item.stock);
+    if(props.item.picture){
+      const storageRef = getStorageRef();
+      const pic_name = props.item.picture;
+      const final_ref = storageRef.child(pic_name);
+        
+      // Get the download URL
+      final_ref.getDownloadURL()
+        .then((url) => {
+          setPicRef(url);
+        }).catch((error) => {
+          console.log(error);
+        });
+    }
   }, [props]);
 
   // Contexto de CartContext
@@ -50,7 +65,7 @@ export const ItemDetail = (props) => {
 
         </div>
         <div className="img-container">
-          <img className="" src={props.item.pageURLBig} alt="Card cap" />
+          <img className="item-detail-picture" src={picRef ? picRef : props.item.pageURLBig} alt="Card cap" />
         </div>
         <div className="item-description-container">
           <h1 className="item-detail-description-title">{props.item.title}</h1>

@@ -122,6 +122,11 @@
     align-items: center;
 }
 
+.item-detail-picture {
+    height: auto;
+    max-width: 50%;
+}
+
 .item-description-container {
     padding: 3rem;
     height: 100%;

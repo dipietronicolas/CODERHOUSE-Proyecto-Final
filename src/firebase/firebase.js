@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import '@firebase/firestore';
+import '@firebase/storage';
 
 const app = firebase.initializeApp({
     apiKey: "AIzaSyDHPKv6MFsCacWjzItQuD5JY_EzXc1CGxk",
@@ -17,4 +18,16 @@ export const getFirebase = () => {
 
 export const getFirestore = () => {
     return firebase.firestore(app);
+}
+
+export const getFirestorage = () => {
+    return firebase.storage();
+}
+
+export const getStorageRef = () => {
+    // Get a reference to the storage service, which is used to create references in your storage bucket
+    let storage = firebase.storage();
+
+    // Create a storage reference from our storage service
+    return storage.ref('tecno-tienda');
 }
