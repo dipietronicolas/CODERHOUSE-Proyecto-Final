@@ -41,8 +41,12 @@ export const Cart = () => {
                 </h4>
               </div>
               <div className="cart-button-container">
-                <button
+                {/*<button
                   className="cart-button btn-yellow">Finalizar Compra</button>
+                */}
+                <Link to='/checkout/' className="cart-button btn-yellow" style={{ textDecoration: 'none'}}>
+                  Continuar
+                </Link>
                 <button
                   className="cart-clear-button"
                   onClick={() => clear()}>Borrar Carrito</button>

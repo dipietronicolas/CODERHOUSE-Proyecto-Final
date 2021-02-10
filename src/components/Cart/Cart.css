@@ -90,6 +90,9 @@
     background-color: rgb(255,193,7);
     color:rgba(20,20,20,0.8);
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-red:hover {

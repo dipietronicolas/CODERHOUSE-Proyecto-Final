@@ -1,10 +1,11 @@
-import './App.css';
-import { CartDataProvider } from './context/CartContext'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import { Cart } from './components/Cart/Cart';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { CheckoutForm } from './components/CheckoutForm/CheckoutForm';
+import './App.css';
+import { CartDataProvider } from './context/CartContext'
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
               </Route>
               <Route path="/cart/">
                 <Cart />
+              </Route>
+              <Route path="/checkout/">
+                <CheckoutForm />
               </Route>
             </Switch>
           </div>

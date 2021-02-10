@@ -5,7 +5,7 @@
   }
 
 .card {
-    height: 10rem;
+    height: 15rem;
     width: 16rem;
     background-color: ghostwhite;
     display: flex;
@@ -18,12 +18,13 @@
   .card-title {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
   
   .card-title:first-child {
-    font-size: 103%;
+    
     font-style: italic;
   }
   

@@ -47,8 +47,7 @@ export const ItemDetail = (props) => {
   return (
     <div className="item-detail">
       <div className='item-detail-header'>
-        <h3 className='item-detail-title'>Detalle de {props.item.title}</h3>
-
+        <h3 className='item-detail-title'>{props.item.title}</h3>
       </div>
       <div className="item-detail-box">
         <div className="return-button-container">

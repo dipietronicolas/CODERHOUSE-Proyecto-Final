@@ -24,9 +24,9 @@ export const CartItem = () => {
         }).catch((error) => {
           console.log(error);
         });
-
+        console.log(picRef);
     }
-  }, [data]);
+  }, [data, picRef]);
 
   return (
     <div className="cart-item-list">
@@ -35,7 +35,7 @@ export const CartItem = () => {
           return (
             <div className="cart-item-container" key={data.item.id}>
               <div className="cart-item-pic">
-                <img src={picRef ? picRef : data.item.pageURLBig} alt="item" />
+                <img src={picRef} alt="item" />
               </div>
               <div className="cart-item-name">
                 <strong>{data.item.title}</strong>

@@ -1,0 +1,16 @@
+.checkout-cart-container {
+  width: 50%;
+}
+
+.checkout-cart-picture {
+  width: 5rem;
+  height: auto;
+}
+
+.checkout-box {
+  height: 30rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
