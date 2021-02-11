@@ -1,7 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { CheckoutCartList } from '../CheckoutCartList/CheckoutCartList';
 import { CartContext } from '../../context/CartContext';
+//firebase
 import { getFirestore } from '../../firebase/firebase';
+import { getTimestamp } from '../../firebase/firebase';
+//Css
 import './CheckoutForm.css';
 
 export const CheckoutForm = () => {
@@ -15,6 +18,7 @@ export const CheckoutForm = () => {
   })
 
   const [order, setOrder] = useState({})
+  const [orderId, setOrderId] = useState('');
 
   const handleInput = e => {
     //console.log(`${e.target.name}: ${e.target.value}`);
@@ -27,7 +31,8 @@ export const CheckoutForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const firebase = getFirestore();
+    const db = getFirestore();
+    const orders = db.collection("orders");
     const cartItems = data.map((item) => {
       return {
         id: item.item.id,
@@ -50,15 +55,27 @@ export const CheckoutForm = () => {
         email: datos.buyer_email
       },
       items: cartItems,
+      date: getTimestamp().toDate(),
       total:total
     }
-
     setOrder(new_order);
-    /*
-    console.log(datos.buyer_name);
-    console.log(datos.buyer_phone);
-    console.log(datos.buyer_email);
-    */
+    orders.add(new_order)
+      .then(({ id }) => {
+        setOrderId(id); //SUCCESS
+      }).catch((err) => {
+        console.log(err);
+      })
+    
+    const docRef = db.collection('items').doc(new_order.items[0].id);
+    let prevStock = data[0].item.stock;
+    let buyAmount = new_order.items[0].quantity;
+    
+    
+    const actualizarStock = docRef.update({
+      stock: prevStock - buyAmount
+    });
+    actualizarStock.then(r => console.log(r));
+   
   }
 
   return (

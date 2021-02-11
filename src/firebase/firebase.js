@@ -31,3 +31,8 @@ export const getStorageRef = () => {
     // Create a storage reference from our storage service
     return storage.ref('tecno-tienda');
 }
+
+//Timestamp para agregar las ordenes con fecha
+export const getTimestamp = () => {
+    return firebase.firestore.Timestamp.fromDate(new Date());
+}

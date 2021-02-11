@@ -8,25 +8,28 @@ import { getStorageRef } from '../../firebase/firebase';
 export const CartItem = () => {
 
   const { data, removeItem } = useContext(CartContext);
-  const [picRef, setPicRef] = useState(null);
+  const [picRef, setPicRef] = useState([]);
 
   useEffect(() => {
     if (data[0] !== undefined && data !== null) {
       const storageRef = getStorageRef();
-      const pic_name = data[0].item.picture;
-      console.log(data.item);
-      const final_ref = storageRef.child(pic_name);
+      let array_aux = [];
 
-      // Get the download URL
-      final_ref.getDownloadURL()
-        .then((url) => {
-          setPicRef(url);
-        }).catch((error) => {
-          console.log(error);
-        });
-        console.log(picRef);
+      const getPictures = async () => {
+        for (const obj of data) {
+          const pic_name = obj.item.picture;
+          const final_ref = storageRef.child(pic_name);
+
+          // Get the download URL
+          const url = await final_ref.getDownloadURL();
+          array_aux.push(url);
+        }
+        setPicRef(array_aux);
+      }
+      getPictures();
     }
-  }, [data, picRef]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="cart-item-list">
@@ -35,7 +38,7 @@ export const CartItem = () => {
           return (
             <div className="cart-item-container" key={data.item.id}>
               <div className="cart-item-pic">
-                <img src={picRef} alt="item" />
+                <img src={picRef[index]} alt="item" />
               </div>
               <div className="cart-item-name">
                 <strong>{data.item.title}</strong>
