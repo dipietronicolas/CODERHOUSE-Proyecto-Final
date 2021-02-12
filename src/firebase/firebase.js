@@ -36,3 +36,4 @@ export const getStorageRef = () => {
 export const getTimestamp = () => {
     return firebase.firestore.Timestamp.fromDate(new Date());
 }
+
