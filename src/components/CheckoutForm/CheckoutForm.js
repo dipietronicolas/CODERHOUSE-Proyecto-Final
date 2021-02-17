@@ -62,7 +62,7 @@ export const CheckoutForm = () => {
       date: getTimestamp().toDate(),
       total: total
     }
-    
+
     orders.add(new_order)
       .then(({ id }) => {
         setOrderId(id); //SUCCESS
@@ -109,52 +109,57 @@ export const CheckoutForm = () => {
       {
         redirect
           ?
-            <Link 
-              to='/' 
-              className="cart-button btn-yellow" 
+          <div>
+            <Link
+              to='/'
+              className="cart-button btn-yellow"
               style={{ textDecoration: 'none' }}>Home</Link>
+              {
+                orderId && orderId
+              }
+          </div>
           :
-            <div className="checkout-box">
-              <CheckoutCartList />
-              <form className="checkout-form" onSubmit={handleSubmit}>
-                <div className="checkout-form-input-container">
-                  <label htmlFor="buyer_name" className="checkout-form-label">Nombre y Apellido</label>
-                  <input
-                    onChange={handleInput}
-                    name="buyer_name"
-                    type="text"
-                    placeholder="Nombre"
-                    className="checkout-input" autoFocus />
-                </div>
+          <div className="checkout-box">
+            <CheckoutCartList />
+            <form className="checkout-form" onSubmit={handleSubmit}>
+              <div className="checkout-form-input-container">
+                <label htmlFor="buyer_name" className="checkout-form-label">Nombre y Apellido</label>
+                <input
+                  onChange={handleInput}
+                  name="buyer_name"
+                  type="text"
+                  placeholder="Nombre"
+                  className="checkout-input" autoFocus />
+              </div>
 
-                <div className="checkout-form-input-container">
-                  <label htmlFor="buyer_phone" className="checkout-form-label">Telefono </label>
-                  <input
-                    onChange={handleInput}
-                    name="buyer_phone"
-                    type="text"
-                    placeholder="011 5823 XXXX"
-                    className="checkout-input" />
-                </div>
+              <div className="checkout-form-input-container">
+                <label htmlFor="buyer_phone" className="checkout-form-label">Telefono </label>
+                <input
+                  onChange={handleInput}
+                  name="buyer_phone"
+                  type="text"
+                  placeholder="011 5823 XXXX"
+                  className="checkout-input" />
+              </div>
 
-                <div className="checkout-form-input-container">
-                  <label htmlFor="buyer_email" className="checkout-form-label">Email </label>
-                  <input
-                    onChange={handleInput}
-                    name="buyer_email"
-                    type="email"
-                    placeholder="Ejemplo: xxx@mail.com"
-                    className="checkout-input" />
-                </div>
+              <div className="checkout-form-input-container">
+                <label htmlFor="buyer_email" className="checkout-form-label">Email </label>
+                <input
+                  onChange={handleInput}
+                  name="buyer_email"
+                  type="email"
+                  placeholder="Ejemplo: xxx@mail.com"
+                  className="checkout-input" />
+              </div>
 
-                <div className="checkout-submit-container">
-                  <button
-                    type="submit"
-                    className="cart-button btn-yellow">Finalizar Compra</button>
-                </div>
+              <div className="checkout-submit-container">
+                <button
+                  type="submit"
+                  className="cart-button btn-yellow">Finalizar Compra</button>
+              </div>
 
-              </form>
-            </div>
+            </form>
+          </div>
       }
     </div>
   )
