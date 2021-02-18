@@ -3,8 +3,9 @@
     max-width: 15rem;
     height: 27rem;
     margin: 0.75rem;
-    padding-bottom: 0.5rem;
-    border: 1px solid;
+    padding: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     border-color:gainsboro;
     box-shadow: 5px 5px 5px 0px slategray;
     transition-duration: 100ms;
@@ -35,14 +36,20 @@
 }
 
 .Card-body {
+    height: 10rem;
+    
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .Card-header{
+    height: 5rem;
+    padding: 0 0.5rem 0 0.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: flex-start;
     margin-top: 1rem;
 }
@@ -53,6 +60,23 @@
 
 .Card-paragraph {
     font-family: 'Roboto', sans-serif;
+}
+
+.Card-btn {
+    text-decoration: none;
+    margin: 0;
+    width: 100%;
+    height: 3rem;
+    border: 2px solid rgb(255,193,7);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(255,193,7);
+    color:rgba(20,20,20,0.8);
+    font-weight: bold;
+    font-size: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 768px) {

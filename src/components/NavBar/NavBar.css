@@ -4,13 +4,14 @@
 }
 
 .Navbar {
-    display: flex;
+    height: 5rem;
     padding: 1rem;
+    background-color: slategrey;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background-color: slategrey;
-    font-family: 'Roboto', sans-serif;
 }
 
 .Navbar-brand-container {
@@ -25,10 +26,7 @@
     align-items: baseline;
     margin:0;
 }
-.Navbar-item:hover a{
-    text-decoration: none;
-    text-shadow: 0px 0px 10px ghostwhite;
-}
+
 
 .Navbar-brand {
     margin: 0;
@@ -40,6 +38,7 @@
     transition-timing-function: ease-in-out;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    font-size: 130%;
 }
 
 .Navbar-brand:hover {
@@ -50,6 +49,8 @@
 .Navbar-item {
     padding: 0 1rem 0 1rem;
     cursor: pointer;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
 }
 
 
@@ -63,6 +64,29 @@
 
 .Navbar-item a:hover {
     color: ivory;
+}
+.Navbar-item:hover a{
+    text-decoration: none;
+    text-shadow: 0px 0px 10px ghostwhite;
+}
+
+.Navbar-item button {
+    background: none;
+    border: none;
+    text-decoration: none;
+    letter-spacing: 3px;
+    color: rgb(232, 232, 232);
+    font-size: 90%;
+} 
+
+.Navbar-item button:hover {
+    color: ivory;
+    text-decoration: none;
+    text-shadow: 0px 0px 10px ghostwhite;
+}
+
+.Navbar-item button:focus {
+    outline: none;
 }
 
 @media screen and (max-width: 834px) {

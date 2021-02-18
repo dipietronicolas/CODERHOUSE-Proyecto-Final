@@ -15,7 +15,7 @@ export const Item = (props) => {
       const storageRef = getStorageRef();
       const pic_name = props.item.picture;
       const final_ref = storageRef.child(pic_name);
-      
+
       // Get the download URL
       final_ref.getDownloadURL()
         .then((url) => {
@@ -33,14 +33,14 @@ export const Item = (props) => {
         <img className="Card-img-top" src={picRef} alt="Card cap"></img>
       </div>
 
-      <div className='Card-body px-2'>
+      <div className='Card-body'>
         <div className="Card-header">
           <p className="Card-title">{props.item.title}</p>
           <p className="Card-paragraph">Precio: <NumberFormat value={props.item.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /></p>
         </div>
         <Link
           to={`/item/${props.item.id}`}
-          className="btn btn-warning">Ver detalle</Link>
+          className="Card-btn">Ver detalle</Link>
       </div>
     </div>
   )

@@ -3,6 +3,16 @@ import '@firebase/firestore';
 import '@firebase/storage';
 
 const app = firebase.initializeApp({
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGER_SENDING_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+});
+/*
+const app = firebase.initializeApp({
     apiKey: "AIzaSyDHPKv6MFsCacWjzItQuD5JY_EzXc1CGxk",
     authDomain: "tienda-online-855ba.firebaseapp.com",
     projectId: "tienda-online-855ba",
@@ -11,6 +21,10 @@ const app = firebase.initializeApp({
     appId: "1:626916253649:web:765880445bf4975f024af0",
     measurementId: "G-R27B37EGH7"
 });
+*/
+export const getFirebaseAuth = () => {
+    return firebase.auth();
+}
 
 export const getFirebase = () => {
     return app
@@ -37,3 +51,6 @@ export const getTimestamp = () => {
     return firebase.firestore.Timestamp.fromDate(new Date());
 }
 
+export const getFirebaseObject = () => {
+    return firebase;
+}

@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { CheckoutCartList } from '../CheckoutCartList/CheckoutCartList';
 import { CartContext } from '../../context/CartContext';
+import { AuthContext } from '../../context/AuthContext';
+
 //firebase
 import firebase from 'firebase';
 import { getFirestore } from '../../firebase/firebase';
@@ -13,6 +15,7 @@ import './CheckoutForm.css';
 export const CheckoutForm = () => {
 
   const { data, clear } = useContext(CartContext);
+  const { currentUser } = useContext(AuthContext);
 
   const [datos, setDatos] = useState({
     buyer_name: '',
@@ -35,6 +38,7 @@ export const CheckoutForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const db = getFirestore();
     const orders = db.collection("orders");
     const cartItems = data.map((item) => {
@@ -54,9 +58,9 @@ export const CheckoutForm = () => {
 
     const new_order = {
       buyer: {
-        name: datos.buyer_name,
+        name: currentUser.user.displayName ? currentUser.user.displayName : datos.buyer_name,
         phone: datos.buyer_phone,
-        email: datos.buyer_email
+        email: currentUser.user.email
       },
       items: cartItems,
       date: getTimestamp().toDate(),
@@ -100,7 +104,6 @@ export const CheckoutForm = () => {
     }
   }
 
-
   return (
     <div className="checkout-form-container">
       <div className='checkout-form-header'>
@@ -109,49 +112,47 @@ export const CheckoutForm = () => {
       {
         redirect
           ?
-          <div>
+          <div className="checkout-home-redirect">
+            <p>Numero de orden: </p>
+            {
+              orderId && orderId
+            }
+            <p><strong>Guarde este numero de orden, puede servirle ante cualquier reclamo</strong></p>
             <Link
               to='/'
               className="cart-button btn-yellow"
               style={{ textDecoration: 'none' }}>Home</Link>
-              {
-                orderId && orderId
-              }
           </div>
           :
           <div className="checkout-box">
             <CheckoutCartList />
             <form className="checkout-form" onSubmit={handleSubmit}>
-              <div className="checkout-form-input-container">
-                <label htmlFor="buyer_name" className="checkout-form-label">Nombre y Apellido</label>
-                <input
-                  onChange={handleInput}
-                  name="buyer_name"
-                  type="text"
-                  placeholder="Nombre"
-                  className="checkout-input" autoFocus />
-              </div>
+              <label htmlFor="buyer_name" className="checkout-form-label">Nombre y Apellido</label>
+
+              {
+                currentUser.user.displayName
+                  ?
+                  currentUser.user.displayName
+                  :
+                  <input
+                    onChange={handleInput}
+                    name="buyer_name"
+                    type="text"
+                    placeholder="Nombre"
+                    className="checkout-input" autoFocus />
+              }
+
 
               <div className="checkout-form-input-container">
                 <label htmlFor="buyer_phone" className="checkout-form-label">Telefono </label>
                 <input
                   onChange={handleInput}
                   name="buyer_phone"
-                  type="text"
+                  type="number"
                   placeholder="011 5823 XXXX"
                   className="checkout-input" />
               </div>
-
-              <div className="checkout-form-input-container">
-                <label htmlFor="buyer_email" className="checkout-form-label">Email </label>
-                <input
-                  onChange={handleInput}
-                  name="buyer_email"
-                  type="email"
-                  placeholder="Ejemplo: xxx@mail.com"
-                  className="checkout-input" />
-              </div>
-
+              email: {currentUser.user.email}
               <div className="checkout-submit-container">
                 <button
                   type="submit"

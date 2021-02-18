@@ -1,0 +1,140 @@
+.SignInContainer {
+  position: absolute;
+  padding-top: 10rem;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  background-color: rgba(20,20,20,0.5);
+  overflow:hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.SignIn {
+  position: relative;
+  padding: 1rem;
+  width: 30rem;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: snow;
+  display: flex;
+  flex-direction: column;
+}
+.SignIn form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-close {
+  position: absolute;
+  padding:0.5rem;
+  top: 0.75rem;
+  right:1.5rem;
+  background: none;
+  border: none;
+  font-size: 130%;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+.btn-close:focus {
+  outline: none;
+}
+
+.btn-close:hover {
+  opacity: 0.7;
+}
+
+.SignInLabel {
+  margin: 0;
+}
+
+.SignInInput {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 2rem;
+  padding-left:0.5rem;
+  border:none;
+  border-bottom:1px solid rgba(50,50,50,0.5);
+}
+
+.SignInInput:focus {
+  outline: none;
+  border:none;
+  border-bottom: 1px solid dodgerblue;
+}
+
+.SignInWithGoogleContainer {
+  width: 100%;
+  height: 3rem;
+}
+
+
+
+
+.btn-SignInGoogle {
+  background: none;
+  border: none;
+  padding-left: 1rem;
+  width: 100%;
+  height: 100%;
+  background: steelblue;
+  color: ivory;
+  display: flex;
+  align-items: center;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+.btn-SignInGoogle:hover {
+  background: rgba(70, 130, 180, 0.8);
+}
+
+.btn-SignInGoogle:focus {
+  outline:none;
+}
+
+
+.SignInForm-LogIn {
+  background: dodgerblue;
+  color: ivory;
+  height: 2rem;
+  width: 8rem;
+  border: 1px solid dodgerblue;
+  border-radius: 2px;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+.SignInForm-LogIn:focus {
+  outline: none;
+}
+
+.SignInForm-LogIn:hover {
+  background: rgba(30, 144, 255, 0.8);
+}
+
+.SignInForm-SignIn {
+  background: ivory;
+  height: 2rem;
+  width: 8rem;
+  border: 1px solid rgba(112, 128, 144, 0.8);
+  border-radius: 2px;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+.SignInForm-SignIn:focus {
+  outline: none;
+}
+
+.SignInForm-SignIn:hover {
+  background: rgb(230, 230, 230);
+}
