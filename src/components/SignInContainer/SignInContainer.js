@@ -1,10 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { getFirebaseAuth } from '../../firebase/firebase';
 import { AuthContext } from '../../context/AuthContext';
 import './SignInContainer.css';
 
 export const SignInContainer = ({ handleSignIn, signInOptions }) => {
 
+  const passwordRef = useRef(null);
   const { createUser, logInUser, registerWithGoogle } = useContext(AuthContext);
   const [datos, setDatos] = useState('');
 
@@ -18,7 +19,7 @@ export const SignInContainer = ({ handleSignIn, signInOptions }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = datos.buyer_email;
-    const password = datos.buyer_password;
+    const password = passwordRef.current.value;
     const auth = getFirebaseAuth();
 
     if (signInOptions === 'INGRESAR') {
@@ -64,6 +65,7 @@ export const SignInContainer = ({ handleSignIn, signInOptions }) => {
             autoFocus />
           <label htmlFor="buyer_email" className="SignInLabel">Password</label>
           <input
+            ref={passwordRef}
             onChange={handleAuth}
             name="buyer_password"
             type="password"

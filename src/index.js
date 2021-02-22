@@ -1,4 +1,3 @@
-//1337x.tw
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

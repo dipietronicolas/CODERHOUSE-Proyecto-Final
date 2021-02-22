@@ -20,7 +20,6 @@ export const ItemDetailContainer = () => {
         console.log("Sin resultados");
         return;
       }
-      console.log("Item encontrado.");
       setItemDetail(<ItemDetail item={{
         id: doc.id,
         ...doc.data()

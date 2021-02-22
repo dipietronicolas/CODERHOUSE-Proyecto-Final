@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import './Cart.css';
 import { CartContext } from '../../context/CartContext';
+import { AuthContext } from '../../context/AuthContext';
 import { CartItem } from '../CartItem/CartItem';
 import { Link } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
@@ -9,7 +10,7 @@ import NumberFormat from 'react-number-format';
 export const Cart = () => {
 
   const { data, clear } = useContext(CartContext);
-  
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <div className="Cart-container">
@@ -44,9 +45,18 @@ export const Cart = () => {
                 {/*<button
                   className="cart-button btn-yellow">Finalizar Compra</button>
                 */}
-                <Link to='/checkout/' className="cart-button btn-yellow" style={{ textDecoration: 'none'}}>
-                  Continuar
-                </Link>
+                {
+                  currentUser
+                    ?
+                    <Link to='/checkout/' className="cart-button btn-yellow" style={{ textDecoration: 'none' }}>
+                      Continuar
+                  </Link>
+                    :
+                    <>
+                      <p className="cart-alert">Debe ingresar para continuar</p>
+                      <button className="cart-button btn-yellow" disabled>Continuar</button>
+                    </>
+                }
                 <button
                   className="cart-clear-button"
                   onClick={() => clear()}>Borrar Carrito</button>

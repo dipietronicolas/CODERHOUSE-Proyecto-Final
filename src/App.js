@@ -48,12 +48,10 @@ function App() {
                 <Route path="/item/:id">
                   <ItemDetailContainer />
                 </Route>
-                <PrivateRoute path="/cart/">
+                <Route path="/cart/">
                   <Cart />
-                </PrivateRoute>
-                <PrivateRoute path="/checkout/">
-                  <CheckoutForm />
-                </PrivateRoute>
+                </Route>
+                <PrivateRoute path="/checkout/" component={CheckoutForm} />
               </Switch>
             </div>
           </div>

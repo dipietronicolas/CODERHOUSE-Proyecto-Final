@@ -11,17 +11,7 @@ const app = firebase.initializeApp({
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 });
-/*
-const app = firebase.initializeApp({
-    apiKey: "AIzaSyDHPKv6MFsCacWjzItQuD5JY_EzXc1CGxk",
-    authDomain: "tienda-online-855ba.firebaseapp.com",
-    projectId: "tienda-online-855ba",
-    storageBucket: "tienda-online-855ba.appspot.com",
-    messagingSenderId: "626916253649",
-    appId: "1:626916253649:web:765880445bf4975f024af0",
-    measurementId: "G-R27B37EGH7"
-});
-*/
+
 export const getFirebaseAuth = () => {
     return firebase.auth();
 }

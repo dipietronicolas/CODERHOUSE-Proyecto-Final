@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext } from 'react';
 import './NavBar.css';
 import { CartWidget } from '../CartWidget/CartWidget';
 import { HamburgerButton } from '../HamburgerButton/HamburgerButton';
@@ -10,11 +10,11 @@ import { Link } from 'react-router-dom';
 export const NavBar = ({handleSignIn}) => {
 
   const { currentUser, signOut } = useContext(AuthContext);
+  
 
   const handleNavbar = () => {
     const navbar = document.querySelector('.Navbar-nav');
-    console.log(navbar.classList.toggle('Navbar-active'));
-    
+    navbar.classList.toggle('Navbar-active');
   }
   
   return (

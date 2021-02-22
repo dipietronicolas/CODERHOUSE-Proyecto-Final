@@ -1,35 +1,33 @@
 import React, { useState, useContext } from 'react';
 import { CheckoutCartList } from '../CheckoutCartList/CheckoutCartList';
+//Context
 import { CartContext } from '../../context/CartContext';
 import { AuthContext } from '../../context/AuthContext';
-
-//firebase
+//Firebase
 import firebase from 'firebase';
 import { getFirestore } from '../../firebase/firebase';
 import { getTimestamp } from '../../firebase/firebase';
-//react-router
+//React-router
 import { Link } from 'react-router-dom';
 //Css
 import './CheckoutForm.css';
 
 export const CheckoutForm = () => {
 
+  // Contextos
   const { data, clear } = useContext(CartContext);
   const { currentUser } = useContext(AuthContext);
 
+  // Estados
   const [datos, setDatos] = useState({
     buyer_name: '',
-    buyer_phone: '',
-    buyer_email: ''
+    buyer_phone: ''
   })
-
-  // eslint-disable-next-line
   const [orderId, setOrderId] = useState('');
   const [redirect, setRedirect] = useState(false);
 
-  const handleInput = e => {
-    //console.log(`${e.target.name}: ${e.target.value}`);
 
+  const handleInput = e => {
     setDatos({
       ...datos,
       [e.target.name]: e.target.value
@@ -105,15 +103,15 @@ export const CheckoutForm = () => {
   }
 
   return (
-    <div className="checkout-form-container">
-      <div className='checkout-form-header'>
+    <div className="checkout-form-container" >
+      <div className='checkout-form-header' >
         <h3 className='checkout-form-title'>Datos del comprador</h3>
-      </div>
+      </div >
       {
         redirect
           ?
           <div className="checkout-home-redirect">
-            <p>Numero de orden: </p>
+            < p > Numero de orden: </p >
             {
               orderId && orderId
             }
@@ -122,7 +120,7 @@ export const CheckoutForm = () => {
               to='/'
               className="cart-button btn-yellow"
               style={{ textDecoration: 'none' }}>Home</Link>
-          </div>
+          </div >
           :
           <div className="checkout-box">
             <CheckoutCartList />
@@ -162,6 +160,7 @@ export const CheckoutForm = () => {
             </form>
           </div>
       }
-    </div>
+    </div >
+
   )
 }

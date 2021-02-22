@@ -42,6 +42,7 @@
 }
 
 .cart-button-container {
+    position: relative;
     height: 7rem;
     width: 23rem;
     display: flex;
@@ -113,6 +114,17 @@
     border: none;
     color: darkred;
     font-size: 120%;
+}
+
+.cart-alert {
+    position: absolute;
+    top:-1.5rem;
+    height: 2.5rem;
+    width: 80%;
+    background: rgba(220, 20, 60, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width:768px){
