@@ -21,9 +21,13 @@ Un curso super recomendado para todos aquellos que quieran adentrarse en el exte
 4.- Una vez finalizado el paso anterior escribir 'npm start', esto hara visible el proyecto en el navegador en http://localhost:3000
 
 
-**adjunto un gif de lo que fue la entrega intermedia**
+**adjunto un gif de lo que fue la entrega final e intermedia**
 
-Entrega intermedia
+# Proyecto final
+![](PROYECTO-FINAL.gif)
+
+# Entrega intermedia
 ![](coderhouse.gif)
+
 
 
